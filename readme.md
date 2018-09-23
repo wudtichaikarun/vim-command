@@ -302,3 +302,34 @@ d/romantic //delete from current cursor position until word romantic
 **open/close line number** `:set nu` / `:set nonu` swith on->off off->on `set nu!`
 
 ## Text Object and Macros
+
+- Text Object
+
+  - {operator}{a}{object} ex. `daw` Delete A Word (delete white space also)
+  - {operator}{i}{object} ex. `diw` Delete Inner Word, `ciw` Change Inner Word
+
+```
+diw  // Delete Inner Word
+daw  // Delete A Word and white space
+
+dis  // Delete Inner Sentence
+das  // Delete A Sentence and white space
+
+dip  // Delete Inner Paragraph (have a blank line)
+dap  // Delete A Paragraph (don't have a blank line)
+
+da]  // Delete A [] and all content inside
+ci]  // Change Inner []
+
+<html>
+yi>  // yank(copy) Inner <> :reg unname = html
+ya>  // yank(copy) A <> :rag unname = <html>
+
+<p> sometext </p>
+cit  // Change Inner Tag result = <p></p>
+
+a{ = a} = aB
+i{ = a} = iB
+```
+
+- Macros
