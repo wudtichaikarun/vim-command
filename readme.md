@@ -164,8 +164,9 @@ ciw     //change in word or just cw
 
 ```
 ~  //swith character to uppercase/lowercase
-g~w //change the word to UPPERCASE
-g~$ //CHANGE THE LINE TO UPPERCASE
+g~w //change the word start from cursor to uppercase
+g~iw //change the word to uppercase
+g~$ //CHANGE THE LINE TO uppercase
 g~~ //swith the character to uppercase/lowercase
 
 yy U //change current line to uppercase
@@ -211,3 +212,93 @@ gJ //join with out write space
 ```
 
 ## Search, Find and Replace
+
+- find
+
+  - f{char} find
+  - F{char} find backward
+  - ; repeat find in the same direction
+  - , repeat find in the opposite direction
+  - t{char} forward till search
+  - T{char} reverse till search
+  - `*` forward search for word
+  - `#` reverse search for word
+  - /pattern search for pattern
+  - ?pattern search backward for pattern
+
+```
+fa //find forward a
+Fa //find backword a
+
+// f(find)
+fspace  //move cursor to white space
+2fspace //move cursor to 2 white spcae
+
+// t is till(untill)
+ti //move forward to one character befor i
+Ti //move backword to one character after i
+
+// t(till) and d(delete)
+dta //delete until before a
+```
+
+- find from word or fomat **incsearch** turn on/off `:set is`/`:set nois` check on or off `:set is ?`
+
+```
+// symblo / is incsearch
+/romantic //find and highlight word romantic press n or N for find next word
+:noh      //no highlight
+```
+
+- find and replace
+
+```
+before => i and you
+          you and me
+1. /and enter //find word 'and'
+2. ciw, cw //change in word
+3. &       //use & instand of 'and'
+4. n or N  //next word 'and'
+3. .       //repeat comand befor
+after => i & you
+         you & me
+```
+
+- `d` delete current position untill `/xxx`
+
+```
+d/romantic //delete from current cursor position until word romantic
+```
+
+- replaces current line with new text `:s/old/new/` , `:s/old/new/[flages]` , `[range]s/old/new/[flage]`
+
+[flages] ex. g for change all word
+
+[range] `$ = last line`, `. = current line`, `.,$ = current line -> last line`, `% = all line (entire file)`
+
+```
+//:s/old/new/[flages]
+:s/romantic/someText/   //replaces romantic with someText in current line
+:s/romantic/someText/g  //replaces all romantic with someText in current line
+
+// :[range]s/old/new/g
+:.,$s/romantic/someText/g //replaces all romantic with someText start curret line -> last line
+:%s/romantic/someText/g   //replaces all romantic with someText all line in the file
+:1,$s/romantic/someText/g //same in top
+```
+
+**replace `/var/app/mail` with `/user/local/mail`**
+
+```
+//hard way
+:s/\var\/app/\/user\/local/
+
+//good way
+:s#/var/app#/user/local#
+```
+
+**reposition to center `zz` reposition to top `z + enter`**
+
+**open/close line number** `:set nu` / `:set nonu` swith on->off off->on `set nu!`
+
+## Text Object and Macros
