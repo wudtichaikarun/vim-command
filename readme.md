@@ -333,3 +333,58 @@ i{ = a} = iB
 ```
 
 - Macros
+
+remember last word you type and key stroke ex. `I, i, a, A, dd, cc`
+
+**macro best practices**
+
+-> Normalize the cursor position. `0`
+
+-> Perform edits and operations.
+
+-> Position your cursor to enable easy replays. `j`
+
+```
+// create macro
+// q{register}
+1. qa     // start recodeing macro in register a
+2. do what ever you want  // ex INOTE:
+3. type q // end recode macro
+:reg a    // for see what is register a store
+
+// use macro
+// @{register}
+@a  // use macro => out put is result in 2. = NOTE: ..
+@@  // repeat macro
+
+// repat macro multiple line
+//{count}@{register}
+5@a  // use macro for 5 line
+
+// append register in case forget or want to add more command to old macro register
+// q{capital register}
+qA   // start append
+j    // append j(new line to register a)
+q    // end recode macro
+```
+
+use macro change "" to ' all line
+
+```
+//"foo", "bar", "baz" -> 'foo', 'bar', 'baz'
+qb  // start recoding macro use register b
+0:s/"/'/g enter  // create macro
+q   // end recode macro
+
+//use macro
+move to line you want to change "" to '"
+@b
+
+// multiple line
+20@b // use macro register b to 20 line
+
+// multiple line current line to the end of the file
+// . = current positon
+// $ = end of file
+:.,$normal @b
+```
