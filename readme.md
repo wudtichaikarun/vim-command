@@ -388,3 +388,62 @@ move to line you want to change "" to '"
 // $ = end of file
 :.,$ normal @b
 ```
+
+## visual
+
+- v characterwise
+- V linewise
+- Ctrl-v blockwise // ex. I Ctrl-v lll jjj
+
+Just some of command you can use in visual mode include.
+
+```
+ex. vap // select all paragraph
+~ - Switch case
+a - all
+c - Change
+d - Delete
+y - Yank(copy)
+o - oposite cursor location // ex. Vjjo
+O - oposite cursor conner use with Ctrl-v(blockwise)
+r - Replace
+I - Insert
+A - Append
+J - Join
+u - Make lowercase
+U - Make uppercase
+> - Shift right
+< - Shift left
+
+// append word multiline
+// want to append end to all line
+line1: one
+line2: one two
+line3: one two three
+1. move cursor to begining line1
+2. Ctrl-v // blockwise select
+3. $   //select to end of line
+4. jj  //select line2, 3
+5. A   // insert multiple line
+6. esc //
+```
+
+**V linewise mix other command**
+
+```
+// want to center text
+########################################
+line 1 sometext:
+line 2 sometext: sometext
+########################################
+
+1. Vj  // select line 1, line 2
+2. :   // enter command mode
+3. center 40 and press enter //not work in vscode
+// can use left right also
+// gv reselect the area
+########################################
+            line 1 sometext:
+       line 2 sometext: sometext
+########################################
+```
