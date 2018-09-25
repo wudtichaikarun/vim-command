@@ -383,8 +383,8 @@ move to line you want to change "" to '"
 // multiple line
 20@b // use macro register b to 20 line
 
-// multiple line current line to the end of the file
+// multiple line current line to the end of the file (cannot use in vscode)
 // . = current positon
 // $ = end of file
-:.,$normal @b
+:.,$ normal @b
 ```
