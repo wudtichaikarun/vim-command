@@ -6,6 +6,10 @@
 - insert mode, type 'i'.
 - leave insert mode, press Escape.
 - command line mode, type ':'
+
+  - Ctrl-d for see list of command
+  - :e filename ex. :e ~/.vimrc // for edit other file
+
 - replacing mode type 'R'
 
 ## help
@@ -446,4 +450,51 @@ line 2 sometext: sometext
             line 1 sometext:
        line 2 sometext: sometext
 ########################################
+```
+
+## Vim settings, preferences, and customizations
+
+- rc = run commands
+- system-wide vimrc and personal vimrc
+- Unix/Linux/Mac: ~/.vimrc
+- Windows: $HOME/\_vimrc
+- Each line is executed as a command.
+
+  - set ruler = :set ruler
+
+```
+:source .vimrc //read file .vimrc again after add new command
+
+//.vimrc map use <F1-12> to auto add content
+// map KEY KEYSTROKES
+map <F2> ifunction foo(){<CR><Space><Space>console.log("I'm function foo");<CR>}<ESC>
+
+//.vimrc custom own key map <leader> key :command  **not recommand**
+map <leader> w :w!<CR> // type dont save and type enter
+```
+
+## Vim Buffers and Windows
+
+- working with multiple windows
+
+```
+:sp   // splite window
+:vs   // splite vertical window
+
+// swith window
+Ctrl-w w // go to next window
+Ctrl-w h // go to windw to the left
+Ctrl-w j // go to window below the curren
+Ctrl-w k // go to windwo above
+Ctrl-w l // go to window to the right
+
+// adjust window size
+Ctrl-w +  //decrease the height of a window
+Ctrl-w -  //increase the height of a window
+Ctrl-w >  //increase the width of a window
+Ctrl-w <  //decrease the width of a window
+Ctrl-w _  //maximize the width of a window
+Ctrl-w =  //make all the windonw same or equal size
+
+:h ctrl-w enter //document ctrl-w can do
 ```
