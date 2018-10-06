@@ -1,5 +1,21 @@
 # HOW TO USE VIM
 
+## vscode vim
+
+- tabs (splite, close, switch)
+
+```
+:sp // splite tab
+
+:q  // close tab
+
+:⌃ h  // swith to left tab
+:⌃ l  // swith to right tab
+
+:⌥ ⌘ → // swith to right tab
+:⌥ ⌘ ← // swith to left tab
+```
+
 ## vim mode
 
 - normal/command mode
