@@ -5,15 +5,17 @@
 - tabs (splite, close, switch)
 
 ```
-:sp // splite tab
+:sp // splite tab horizontal
+:vsp // splite tab vertical
 
 :q  // close tab
-
 :⌃ h  // swith to left tab
 :⌃ l  // swith to right tab
 
 :⌥ ⌘ → // swith to right tab
 :⌥ ⌘ ← // swith to left tab
+
+4o  // insert  multiple line
 ```
 
 ## vim mode
@@ -513,4 +515,73 @@ Ctrl-w _  //maximize the width of a window
 Ctrl-w =  //make all the windonw same or equal size
 
 :h ctrl-w enter //document ctrl-w can do
+```
+
+## Vim surround
+
+- wrap surround word with html tag
+
+```
+"Hello world" -> <p>Hello world</p>
+cs"<p>
+
+'Hello world' -> <p>Hello world</p>
+cs'<p>
+
+Hello world
+<p>Hello world</p>
+VS<p> or yss<p>
+
+Hello world wrap the entire line
+<p>Hello world wrap the entire line</p>
+yss<p>
+
+Hello world
+<b>Hello</b> world
+1. move cursor on Hello
+2. ysiw<b>
+```
+
+- delete surround
+
+```
+"Hello world" -> Hello world
+ds"
+
+{Hello world}
+Hello world
+ds{
+```
+
+- wrap surrond text with ],}
+
+```
+Hello world -> [Hello world]
+1. use v for select
+2. type S]
+
+Hello world -> [Hello] world
+1. move cursor on Hello
+2. type ysiw]
+Note use [ instand of ] for add some space link this [ Hello ]
+```
+
+- wrap the entire line
+
+```
+{Hello} world
+[{Hello} world]
+yss]
+
+{Hello} world
+( {Hello} world )
+yssb
+```
+
+- replace surround
+
+```
+(Hello world)
+{Hello world}
+cs(}
 ```
